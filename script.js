@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculateBtn');
     const resultDiv = document.getElementById('result'); // Still reference, but will be less used
 
+
     // Function to generate grade input fields
     function generateGradeInputs(num) {
         gradeInputsBody.innerHTML = ''; // Clear previous inputs
+
 
         // Add table header row
         const headerRow = document.createElement('tr');
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         finalGradeTh.textContent = 'Average Grade'; // Changed header text
         headerRow.appendChild(finalGradeTh);
         gradeInputsBody.appendChild(headerRow);
+
 
         // Add input row
         const inputRow = document.createElement('tr');
@@ -40,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         gradeInputsBody.appendChild(inputRow);
     }
 
+
     // Initial generation of inputs (for 2 grades by default)
     generateGradeInputs(parseInt(numGradesSelect.value));
+
 
     // Event listener for dropdown change
     numGradesSelect.addEventListener('change', (event) => {
@@ -51,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // and the finalGradeCell will be reset by generateGradeInputs
     });
 
+
     // Event listener for calculate button
     calculateBtn.addEventListener('click', () => {
         const gradeInputs = document.querySelectorAll('.grade-input');
@@ -59,9 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let validGradesCount = 0;
         let allInputsValid = true; // Flag to track overall validity
 
+
         // Reset styling and text before recalculating
         finalGradeCell.textContent = '-';
         finalGradeCell.classList.remove('grade-fail');
+
 
         gradeInputs.forEach(input => {
             const grade = parseFloat(input.value);
@@ -80,16 +88,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+
         // Only proceed if all inputs were valid and all were filled
         if (allInputsValid && validGradesCount === gradeInputs.length && validGradesCount > 0) {
             const average = totalGrades / validGradesCount;
             finalGradeCell.textContent = average.toFixed(2); // Display average in the table cell
 
+
+            const gifContainer = document.getElementById('gifContainer');
+
+
             // Apply red background if average < 6
             if (average < 6) {
                 finalGradeCell.classList.add('grade-fail');
+                finalGradeCell.classList.remove('grade-pass');
+                gifContainer.innerHTML = "<img src='fail.gif' alt='Failed gif'>";
             } else {
-                finalGradeCell.classList.remove('grade-fail'); // Ensure it's removed if previously failed
+                finalGradeCell.classList.add('grade-pass');
+                finalGradeCell.classList.remove('grade-fail');
+                gifContainer.innerHTML = "<img src='pass.gif' alt='Passed gif'>"; // Ensure it's removed if previously failed
             }
             resultDiv.textContent = ''; // Clear external result div if it was used
         } else if (validGradesCount < gradeInputs.length && allInputsValid) {
@@ -101,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // If allInputsValid is false due to an invalid entry (already alerted) or no grades entered
             finalGradeCell.textContent = '-';
             resultDiv.textContent = 'Please enter your grades.'; // This might still appear depending on the flow
+            gifContainer.innerHTML = '';
         }
     });
 });

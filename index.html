@@ -4,52 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See Your Average</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        input[type="number"] {
-            width: 60px;
-            padding: 5px;
-            text-align: center;
-        }
-        #gradeInputs tr:first-child {
-            font-weight: bold;
-        }
-        #calculateBtn {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        #result { /* This div will now be less prominent or can be removed */
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            display: none; /* Hide it as result is in table */
-        }
-        /* New CSS for final grade styling */
-        .final-grade-cell {
-            font-weight: bold;
-        }
-        .grade-fail {
-            background-color: #ffcccc; /* Light red */
-            color: #cc0000; /* Darker red text */
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css">
+   
 <body>
     <h1>Welcome to See Your Average</h1>
+
 
     <div>
         <label for="numGrades">Select number of grades:</label>
@@ -60,12 +19,18 @@
         </select>
     </div>
 
+
     <table id="gradeTable">
         <tbody id="gradeInputs">
             </tbody>
     </table>
 
+
     <button id="calculateBtn">Calculate Average</button>
+
+
+    <div id="gifContainer"></div>
+
 
     <div id="result"></div> <script src="script.js"></script>
 </body>
