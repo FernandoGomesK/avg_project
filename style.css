@@ -1,0 +1,129 @@
+/* Fundo geral */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b; /* Chumbo escuro */
+    color: #e0e0e0;            /* Texto cinza claro */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+}
+
+
+/* Título com degradê RGB */
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(255, 0, 102), rgb(0, 204, 255), rgb(102, 255, 102));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+
+/* Seletor de número de notas */
+label, select {
+    font-size: 1.1em;
+    margin: 10px;
+}
+
+
+/* Tabela e inputs */
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+th, td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+
+#gradeInputs tr:first-child {
+    font-weight: bold;
+}
+
+
+/* Botão */
+#calculateBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #888;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+#calculateBtn:hover {
+    background-color: #666;
+}
+
+
+/* Resultado embutido na célula */
+.final-grade-cell {
+    font-weight: bold;
+}
+
+
+/* Nota vermelha (reprovado) */
+.grade-fail {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+
+/* Nota verde (aprovado) */
+.grade-pass {
+    background-color: #4dff88;
+    color: #003300;
+}
+
+
+#result {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ff4d00;
+}
+
+
+#gifContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+#gifContainer img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+
